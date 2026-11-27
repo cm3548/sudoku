@@ -23,9 +23,9 @@ import {
 
 const DIFFICULTY_PRESETS = [
   {label: 'Demo Inicial (75)', emptyCount: 75},
-  {label: 'Media (95)', emptyCount: 95},
-  {label: 'Alta (115)', emptyCount: 115},
-  {label: 'Extrema (135)', emptyCount: 135},
+  {label: 'Media (90)', emptyCount: 90},
+  {label: 'Alta (105)', emptyCount: 105},
+  {label: 'Máxima (115)', emptyCount: 115},
 ] as const;
 
 export const App: React.FC = () => {
@@ -311,7 +311,7 @@ export const App: React.FC = () => {
                   id="empty-cells-slider"
                   type="range"
                   min={12}
-                  max={140}
+                  max={115}
                   step={1}
                   value={emptyCountTarget}
                   onChange={(e) => setEmptyCountTarget(Number(e.target.value))}
@@ -320,7 +320,7 @@ export const App: React.FC = () => {
                 <div className="flex justify-between font-mono-tabular text-[11px] text-slate-400">
                   <span>12 (simple)</span>
                   <span>75 (demo)</span>
-                  <span>140 (alto ramificado)</span>
+                  <span>115 (máximo)</span>
                 </div>
               </div>
             </section>

@@ -259,7 +259,7 @@ export function generateSudokuPuzzle(
 ): GeneratedPuzzle {
   const start = performance.now();
   const rng = createRng(seed);
-  const clampedTarget = Math.max(1, Math.min(140, Math.floor(emptyCountRequested)));
+  const clampedTarget = Math.max(1, Math.min(115, Math.floor(emptyCountRequested)));
 
   const puzzle = generateCompleteBoard(rng);
   const indices = shuffleInPlace(

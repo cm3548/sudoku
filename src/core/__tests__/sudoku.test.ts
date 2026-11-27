@@ -151,3 +151,10 @@ test('computeTreeLayout preserves solution path when sampling large trees', () =
     assert.ok(layout.nodeMap.has(pathId));
   }
 });
+
+test('generateSudokuPuzzle clamps empty cells to maximum 115', () => {
+  const puzzle = generateSudokuPuzzle(140, 205);
+  assert.equal(puzzle.emptyCountRequested, 115);
+  assert.ok(puzzle.emptyCountActual <= 115);
+  assert.equal(puzzle.validation.isValid, true);
+});

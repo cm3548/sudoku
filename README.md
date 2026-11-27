@@ -51,7 +51,7 @@ http://localhost:3000
   ```
 
 ### Guía rápida de uso
-- **Panel 1 (Generador)**: elige la cantidad de casillas vacías (de `12` a `140`) o un nivel predefinido y pulsa **Generar Nuevo Sudoku**.
+- **Panel 1 (Generador)**: elige la cantidad de casillas vacías (de `12` a `115`) o un nivel predefinido y pulsa **Generar Nuevo Sudoku**.
 - **Panel 2 (Ejecución)**: ejecuta **BFS**, **DFS** o **Ejecutar Ambos Algoritmos** sobre copias idénticas del tablero inicial (con límite interno de seguridad de `50,000` nodos, `10 s` y `64 MB`).
 - **Paneles 3 y 4 (Árboles reales)**: usa la rueda del ratón o el gesto *pinch* del trackpad para acercar/alejar, arrastra para desplazarte, utiliza **Paso a paso** para ver el orden de exploración o haz clic en cualquier nodo (o fila en **Tabla de Nodos**) para inspeccionar su estado 16×16.
 
