@@ -4,28 +4,56 @@ Aplicación web educativa desarrollada en **React + TypeScript** para la asignat
 
 ---
 
-## 1. Requisitos e Instalación
+## 1. Instalación y Ejecución Rápida
 
 ### Prerrequisitos
-- Node.js 18+ y npm.
+- **Node.js 18 o superior** (incluye `npm` y `npx`). Puedes comprobar tu versión ejecutando:
+  ```bash
+  node -v
+  ```
+- **Git** (opcional, si clonas el repositorio desde GitHub).
+- No requiere variables de entorno, base de datos ni claves de API: todo se ejecuta localmente en tu navegador.
 
-### Instalación y ejecución local
+### Opción A · Clonar el repositorio
 ```bash
+git clone <URL_DEL_REPOSITORIO>
+cd <NOMBRE_DE_LA_CARPETA>
 npm install
 npm run dev
 ```
-La aplicación se iniciará en `http://localhost:3000`.
 
-### Compilación y verificación de tipos
-```bash
-npm run lint
-npm run build
+### Opción B · Descargar como ZIP
+1. Descarga el proyecto en formato `.zip` y descomprímelo en tu computadora.
+2. Abre una terminal (PowerShell, CMD o Terminal) dentro de la carpeta descomprimida y ejecuta:
+   ```bash
+   npm install
+   npm run dev
+   ```
+
+Una vez iniciado el servidor, abre tu navegador en:
+```text
+http://localhost:3000
 ```
 
-### Pruebas unitarias de algoritmos y validación
-```bash
-npx --yes tsx --test src/core/__tests__/sudoku.test.ts
-```
+### Otros comandos útiles
+- **Verificar tipos de TypeScript**:
+  ```bash
+  npm run lint
+  ```
+- **Generar compilación de producción (`dist/`) y previsualizarla**:
+  ```bash
+  npm run build
+  npm run preview
+  ```
+- **Ejecutar pruebas unitarias de algoritmos y validación**:
+  ```bash
+  npx --yes tsx --test src/core/__tests__/sudoku.test.ts
+  ```
+
+### Guía rápida de uso
+- **Panel 1 (Generador)**: elige la cantidad de casillas vacías (de `12` a `140`) o un nivel predefinido y pulsa **Generar Nuevo Sudoku**.
+- **Panel 2 (Ejecución)**: ejecuta **BFS**, **DFS** o **Ejecutar Ambos Algoritmos** sobre copias idénticas del tablero inicial (con límite interno de seguridad de `50,000` nodos, `10 s` y `64 MB`).
+- **Paneles 3 y 4 (Árboles reales)**: usa la rueda del ratón o el gesto *pinch* del trackpad para acercar/alejar, arrastra para desplazarte, utiliza **Paso a paso** para ver el orden de exploración o haz clic en cualquier nodo (o fila en **Tabla de Nodos**) para inspeccionar su estado 16×16.
 
 ---
 
@@ -54,20 +82,3 @@ src/
 ├── App.tsx               # Orquestación de los 5 paneles y estado experimental
 └── main.tsx              # Punto de entrada React
 ```
-
----
-
-## 3. Correspondencia entre Requisitos Universitarios y Módulos
-
-| Requisito de la Asignatura | Implementación en la Aplicación |
-| :--- | :--- |
-| **Generación aleatoria 16×16 (1..9, A..G) y solución única** | `src/core/generator.ts` (`generateCompleteBoard`, `countSolutionsUpToTwo`, `generateSudokuPuzzle`) separado de los algoritmos de búsqueda. |
-| **Representación de estados y política determinista** | `src/core/state.ts` (`Uint8Array(256)`, `findNextEmptyCell` por filas, `.` para casillas vacías). |
-| **Validación de restricciones (filas, columnas, regiones 4×4)** | `src/core/validator.ts` (`getValidCandidates`, `validateBoard`, `validateSolutionAgainstInitial`). |
-| **Implementación auténtica BFS (cola FIFO)** | `src/core/bfs.ts` (`solveWithBFS` con cola FIFO `head++`, expansión por niveles y registro en `NodeRegistry`). |
-| **Implementación auténtica DFS (pila LIFO y backtracking)** | `src/core/dfs.ts` (`solveWithDFS` con pila LIFO `stack.pop()`, descenso por rama y retroceso ante contradicciones). |
-| **Árboles reales de búsqueda con ID, padre, nivel, movimiento y estado** | `src/core/nodeRegistry.ts` (`SearchNode`) + `src/core/searchTree.ts` (`computeTreeLayout`). |
-| **Visualización interactiva (zoom, pan, paso a paso, inspector, tabla)** | `src/components/SearchTreeViewer.tsx` (SVG interactivo + reproducción paso a paso + tabla filtrable + tablero 16×16 del nodo). |
-| **Paneles 1–5 (Generador, Ejecución, BFS, DFS, Comparación)** | `src/App.tsx`, `src/components/AlgorithmResultPanel.tsx`, `src/components/ComparisonPanel.tsx`. |
-| **Límites configurables sin simular soluciones** | `SearchConfig` (`maxNodes`, `maxTimeMs`, `maxMemoryBytes`) en `bfs.ts` y `dfs.ts`; si se alcanza límite, `solved = false`. |
-| **Documentación académica en español (12 puntos)** | `src/components/AcademicDocs.tsx` integrado directamente en la interfaz. |
