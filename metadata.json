@@ -1,0 +1,6 @@
+{
+  "name": "Sudoku 16x16 · Laboratorio BFS y DFS",
+  "description": "Aplicación académica interactiva para generar Sudokus 16x16 con solución única y comparar los algoritmos de búsqueda BFS y DFS con árboles reales.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
