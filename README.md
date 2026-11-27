@@ -16,15 +16,15 @@ Aplicación web educativa desarrollada en **React + TypeScript** para la asignat
 
 ### Opción A · Clonar el repositorio
 ```bash
-git clone <URL_DEL_REPOSITORIO>
-cd <NOMBRE_DE_LA_CARPETA>
+git clone https://github.com/cm3548/sudoku.git
+cd sudoku
 npm install
 npm run dev
 ```
 
 ### Opción B · Descargar como ZIP
-1. Descarga el proyecto en formato `.zip` y descomprímelo en tu computadora.
-2. Abre una terminal (PowerShell, CMD o Terminal) dentro de la carpeta descomprimida y ejecuta:
+1. Entra a [https://github.com/cm3548/sudoku](https://github.com/cm3548/sudoku), haz clic en **Code → Download ZIP** y descomprímelo en tu computadora.
+2. Abre una terminal (PowerShell, CMD o Terminal) dentro de la carpeta descomprimida (`sudoku-main`) y ejecuta:
    ```bash
    npm install
    npm run dev
